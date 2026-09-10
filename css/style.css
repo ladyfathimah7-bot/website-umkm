@@ -37,3 +37,12 @@ button {
     border: 0;
     border-radius: 999px;
 }
+
+.informasi {
+    text-align: center;
+}
+
+.time {
+    margin: 0 auto;
+    width: fit-content;
+}
