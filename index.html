@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +7,66 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <main class="page">
-        <section class="hero">
+
+    <a class="skip-link" href="#konten">Lewati ke konten pertama</a>
+    <header class="site-header">
+        <nav class="nav" aria-label="Navigasi utama">
+            <a class="brand" href="index.html">Soto Tauto Lani</a>
+            <ul>
+                <li><a aria-current="page" href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang Kami</a></li>
+                <li><a href="#kontak">Kontak Singkat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="konten" class="page">
+        <section class="hero" aria-labelledby="hero-title">
             <p class="eyebrow">UMKM Pekalongan</p>
-            <h1>Soto Tauto Lani</h1>
+            <h1 id="hero-title">Soto Tauto Lani</h1>
             <p>Soto khas Pekalongan yang lezat dan menggugah selera.</p>
             <button id="promoButton" type="button">Lihat promo hari ini</button>
+            <img src="assets/images/etalase-soto.svg" alt="Etalase Soto Tauto Lani berisi soto khas Pekalongan" class="hero-image">
         </section>
 
         <section aria-labelledby="produk-title">
             <h2 id="produk-title">Produk unggulan</h2>
-            <ul class="products">
-                <li>Soto Tauto Ayam - Rp15.000</li>
-                <li>Soto Tauto Daging - Rp20.000</li>
-                <li>Soto Tauto Ayam dan Daging - Rp25.000</li>
-            </ul>
+            <div class="product-list">
+                <article class="product-card">
+                    <h3>Soto Tauto Ayam</h3>
+                    <p>Soto khas Pekalongan dengan kuah tauto yang gurih dan daging ayam yang lembut.</p>
+                    <p>Rp15.000</p>
+                </article>
+                <article class="product-card">
+                    <h3>Soto Tauto Daging</h3>
+                    <p>Soto khas Pekalongan dengan kuah tauto yang gurih dan potongan daging sapi yang empuk.</p>
+                    <p>Rp20.000</p>
+                </article>
+                <article class="product-card">
+                    <h3>Soto Tauto Ayam dan Daging</h3>
+                    <p>Perpaduan daging ayam dan daging sapi dalam kuah tauto yang gurih dan nikmat.</p>
+                    <p>Rp25.000</p>
+                </article>
+            </div>
         </section>
 
-        <section aria-labelledby="informasi-title" class="informasi">
-            <h2 id="informasi-title">Informasi</h2>
-            <p>Jam Buka:</p>
-            <ul class="time">
+        <section id="kontak" aria-labelledby="kontak-title" class="kontak">
+            <h2 id="kontak-title">Kontak Singkat</h2>
+            <p>Alamat: Jl. Raya Pekalongan No. 123, Pekalongan</p>
+            <p>Jam layanan:</p>
+            <ul>
                 <li>Senin - Jumat: 08.00 - 20.00</li>
-                <li>Sabtu - Minggu: 09.00 - 22.00</li>  
+                <li>Sabtu - Minggu: 09.00 - 22.00</li>
             </ul>
-            <p>Alamat: Jl. Raya Pekalongan No. 123</p>
+            <p>Hubungi kami melalui: <a href="https://wa.me/lady.fathimah?s=t" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Soto Tauto Lani. Data pada halaman ini bersifat dummy.</p>
+    </footer>
+
     <script src="js/script.js"></script>
+
 </body>
 </html>
