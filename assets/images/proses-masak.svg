@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+    <title id="title">Proses pembuatan Soto Tauto</title>
+    <desc id="desc">Ilustrasi mangkuk berisi Soto Tauto dengan kuah, daging, tauge, dan daun bawang.</desc>
+
+    <rect width="640" height="360" fill="#fef3c7" />
+
+    <rect y="285" width="640" height="75" fill="#8d5a3b" />
+
+    <path d="M150 150h340l-30 120H180z" fill="#f8fafc" />
+    <ellipse cx="320" cy="150" rx="170" ry="45" fill="#e5e7eb" />
+
+    <ellipse cx="320" cy="150" rx="155" ry="35" fill="#d9a441" />
+
+    <rect x="235" y="135" width="45" height="22" rx="6" fill="#7c4a2d" />
+    <rect x="300" y="125" width="48" height="24" rx="6" fill="#8d5a3b" />
+    <rect x="365" y="140" width="45" height="20" rx="6" fill="#70402a" />
+
+    <path d="M210 145c15-20 25 10 40-10" fill="none" stroke="#f8fafc" stroke-width="7" stroke-linecap="round" />
+    <path d="M380 130c15-18 25 12 42-8" fill="none" stroke="#f8fafc" stroke-width="7" stroke-linecap="round" />
+
+    <path d="M270 125l15-25" stroke="#4d7c0f" stroke-width="7" stroke-linecap="round" />
+    <path d="M285 125l25-28" stroke="#65a30d" stroke-width="7" stroke-linecap="round" />
+    <path d="M350 125l18-27" stroke="#4d7c0f" stroke-width="7" stroke-linecap="round" />
+
+    <circle cx="315" cy="145" r="5" fill="#b45309" />
+    <circle cx="335" cy="138" r="5" fill="#b45309" />
+    <circle cx="350" cy="150" r="5" fill="#b45309" />
+
+    <path d="M470 80c30 30 35 65 10 95" fill="none" stroke="#64748b" stroke-width="12" stroke-linecap="round" />
+    <ellipse cx="475" cy="70" rx="18" ry="25" fill="#94a3b8" />
+
+    <ellipse cx="105" cy="250" rx="55" ry="25" fill="#e5e7eb" />
+    <ellipse cx="105" cy="245" rx="45" ry="18" fill="#dc2626" />
+
+    <ellipse cx="320" cy="275" rx="175" ry="18" fill="#6f3b1f" />
+</svg>

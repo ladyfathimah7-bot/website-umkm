@@ -1,0 +1,32 @@
+.tentang-etalase-hero {
+    width: 100%;
+    min-height: 360px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    background: #8d5a3b;
+    background: linear-gradient(
+        to bottom,
+        #fef3c7 0,
+        #fef3c7 300px,
+        #8d5a3b 300px,
+        #8d5a3b 360px
+    );
+}
+
+.tentang-etalase-hero img {
+    width: 280px;
+    height: 280px;
+    max-width: 90%;
+    margin: 0 10px 10px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+.tentang-tim-hero img {
+    width: 350px;
+    height: 250px;
+    border-radius: 10px;
+}

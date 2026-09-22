@@ -15,7 +15,8 @@
             <ul>
                 <li><a aria-current="page" href="index.html">Beranda</a></li>
                 <li><a href="tentang.html">Tentang Kami</a></li>
-                <li><a href="#kontak">Kontak Singkat</a></li>
+                <li><a href="produk.html">Produk</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
             </ul>
         </nav>
     </header>
@@ -26,38 +27,71 @@
             <h1 id="hero-title">Soto Tauto Lani</h1>
             <p>Soto khas Pekalongan yang lezat dan menggugah selera.</p>
             <button id="promoButton" type="button">Lihat promo hari ini</button>
-            <img src="assets/images/etalase-soto.svg" alt="Etalase Soto Tauto Lani berisi soto khas Pekalongan" class="hero-image">
+            <div class="gallery-list">
+                <figure class="media-card">
+                    <div class="etalase-hero">
+                        <img src="assets/images/produk-1-ayam.jpg" alt="Etalase Soto Tauto Ayam">
+                        <img src="assets/images/produk-2-daging.jpg" alt="Etalase Soto Tauto Daging">
+                        <img src="assets/images/produk-3-mix.jpg" alt="Etalase Soto Tauto Ayam dan Daging">
+                    </div>
+                    <figcaption>Etalase produk membantu pelanggan mengenali pilihan soto.</figcaption>
+                </figure>
+            </div>
+
+            <!-- <img src="assets/images/etalase-soto.svg" alt="Etalase Soto Tauto Lani berisi soto khas Pekalongan" class="hero-image"> -->
         </section>
 
         <section aria-labelledby="produk-title">
             <h2 id="produk-title">Produk unggulan</h2>
             <div class="product-list">
                 <article class="product-card">
+                    <figure class="unggulan-card">
+                        <img class="produk-unggulan" src="assets/images/produk-1-ayam.jpg" alt="Soto Tauto Ayam khas Pekalongan">
+                    </figure>
                     <h3>Soto Tauto Ayam</h3>
                     <p>Soto khas Pekalongan dengan kuah tauto yang gurih dan daging ayam yang lembut.</p>
                     <p>Rp15.000</p>
                 </article>
                 <article class="product-card">
+                    <figure class="unggulan-card">
+                        <img class="produk-unggulan" src="assets/images/produk-2-daging.jpg" alt="Soto Tauto Daging khas Pekalongan">
+                    </figure>   
                     <h3>Soto Tauto Daging</h3>
                     <p>Soto khas Pekalongan dengan kuah tauto yang gurih dan potongan daging sapi yang empuk.</p>
                     <p>Rp20.000</p>
                 </article>
                 <article class="product-card">
+                    <figure class="unggulan-card">
+                        <img class="produk-unggulan" src="assets/images/produk-3-mix.jpg" alt="Soto Tauto Ayam dan Daging khas Pekalongan">
+                    </figure>
                     <h3>Soto Tauto Ayam dan Daging</h3>
                     <p>Perpaduan daging ayam dan daging sapi dalam kuah tauto yang gurih dan nikmat.</p>
                     <p>Rp25.000</p>
                 </article>
+                <article class="product-card">
+                    <figure class="unggulan-card">
+                        <img class="produk-unggulan" src="assets/images/produk-5-telur.jpg" alt="Sate Telur Puyuh">
+                    </figure>
+                    <h3>Sate Telur Puyuh</h3>
+                    <p>Sate telur puyuh dengan bumbu gurih yang cocok sebagai pelengkap saat menikmati Soto Tauto.</p>
+                    <p>Rp3.000</p>
+                </article>
             </div>
+        </section>
+
+        <section aria-labelledby="infromasi-title">
+            <h2 id="infromasi-title">Informasi</h2>
+            <p>Jam Buka:</p>
+            <ul>
+                <li>Senin - Jumat: 08.00 - 20.00</li>
+                <li>Sabtu - Minggu: 09.00 - 22.00</li>
+            </ul>
         </section>
 
         <section id="kontak" aria-labelledby="kontak-title" class="kontak">
             <h2 id="kontak-title">Kontak Singkat</h2>
             <p>Alamat: Jl. Raya Pekalongan No. 123, Pekalongan</p>
-            <p>Jam layanan:</p>
-            <ul>
-                <li>Senin - Jumat: 08.00 - 20.00</li>
-                <li>Sabtu - Minggu: 09.00 - 22.00</li>
-            </ul>
+            <p>Jam layanan: 08.00 - 21.00</p>
             <p>Hubungi kami melalui: <a href="https://wa.me/lady.fathimah?s=t" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
         </section>
     </main>

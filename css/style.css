@@ -107,3 +107,66 @@ button:focus-visible {
     text-align: center; 
     background: #2f2118; 
 }
+
+/* CSS P03 */
+img { 
+    max-width: 100%; 
+    height: auto; 
+}
+
+figure { 
+    margin: 0 0 24px; 
+}
+
+figcaption { 
+    margin-top: 8px; 
+    color: #6b5b52; 
+}
+
+table { width: 100%; 
+    border-collapse: collapse; 
+}
+
+caption { 
+    margin-bottom: 8px; 
+    font-weight: 700; 
+    text-align: left; 
+}
+
+th,
+td { 
+    padding: 10px; 
+    text-align: left; 
+    border: 1px solid #dccbbc; 
+}
+
+.etalase-hero {
+    width: 100%;
+    min-height: 360px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    background: #8d5a3b;
+    background: linear-gradient(
+        to bottom,
+        #fef3c7 0,
+        #fef3c7 300px,
+        #8d5a3b 300px,
+        #8d5a3b 360px
+    );
+}
+
+.etalase-hero img {
+    width: 260px;
+    height: 260px;
+    max-width: 90%;
+    margin: 0 5px 10px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+.produk-unggulan {
+    border-radius: 10px;
+}
