@@ -170,3 +170,24 @@ td {
 .produk-unggulan {
     border-radius: 10px;
 }
+
+/* CSS P04 */
+.field { 
+    margin-bottom: 16px; 
+}
+
+.field label { 
+    display: block; 
+    margin-bottom: 6px; 
+}
+
+fieldset { 
+    margin: 0 0 16px; 
+}
+
+#preview-form { 
+    padding: 16px; 
+    white-space: pre-wrap; 
+    background: white; 
+    border: 1px solid #dccbbc; 
+}
