@@ -8,16 +8,21 @@ body {
 
 /* P05 css terbaru */
 :root {
-    --color-primary: #6f3b1f;  
-    --color-primary-strong: #4b2715;
+    /* --color-primary: #6f3b1f;   */
+    --color-primary: #7c2d12;
+    /* --color-primary-strong: #4b2715; */
+    --color-primary-strong: #431407;
     --color-text: #2f2118;
     --color-muted: #6b5b52;
     --color-surface: #ffffff;
-    --color-surface-soft: #fff8f0;
+    /* --color-surface-soft: #fff8f0; */
+    --color-surface-soft: #fff7ed;
     --color-border: #dccbbc;
     --color-focus: #1d4ed8;
-    --color-accent: #8d5a3b;
-    --color-accent-soft: #fef3c7;
+    /* --color-accent: #8d5a3b; */
+    --color-accent: #c2410c;
+    /* --color-accent-soft: #fef3c7; */
+    --color-accent-soft: #ffedd5;
     --space-1: 0.5rem;
     --space-2: 0.75rem;
     --space-3: 1rem;
@@ -33,7 +38,13 @@ body {
     --color-highlight: #d97706;
     --space-6: 2.5rem;
     --radius-lg: 1.25rem;
+
+    /*  */
+    
 }
+
+/* tgs p06 */
+.hero :focus-visible { outline-color: var(--color-accent-soft); }
 
 *,
 *::before,
@@ -72,16 +83,16 @@ a:hover { color: var(--color-primary-strong); }
 /* Style shell halaman dan navigasi */
 .site-header,
 .site-footer {
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
 }
 .site-footer {
-  margin-top: var(--space-5);
-  color: var(--color-muted);
-  text-align: center;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 0;
+    margin-top: var(--space-5);
+    color: var(--color-muted);
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 0;
 }
 .site-footer p {
   margin-inline: auto;
@@ -198,45 +209,131 @@ audio { max-width: 100%; }
 /*  */
 
 .etalase-hero {
-  width: 100%;
-  min-height: 310px;
-  text-align: center;
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-3);
-  box-sizing: border-box;
-  font-size: 0;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-2);
 }
 .etalase-hero img {
-  width: 260px;
-  height: 260px;
-  max-width: 30%;
-  margin: 0 8px 10px;
-  display: inline-block;
-  vertical-align: top;
-  border-radius: var(--radius-sm);
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
 }
+.media-card figcaption { margin-top: var(--space-2); }
 
 /* Tugas Mandiri P05 */
 .field input:valid,
 .field textarea:valid {
-  border-color: var(--color-success);
-  border-width: 2px;
+    border-color: var(--color-success);
+    border-width: 2px;
 }
 
 .field input:invalid:not(:placeholder-shown),
 .field textarea:invalid:not(:placeholder-shown) {
-  border-color: var(--color-danger);
-  border-width: 2px;
-  border-style: dashed;
+    border-color: var(--color-danger);
+    border-width: 2px;
+    border-style: dashed;
 }
 
 caption {
-  border-bottom: 2px solid var(--color-highlight);
-  padding-bottom: var(--space-1);
+    border-bottom: 2px solid var(--color-highlight);
+    padding-bottom: var(--space-1);
 }
+
+/* P06 Terapkan Flexbox */
+.nav {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    justify-content: space-between;
+}
+.brand { margin-bottom: 0; }
+.nav ul { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.nav li { margin: 0; }
+
+.product-card { display: flex; flex-direction: column; }
+.product-badge {
+    align-self: flex-start;
+    padding: 0.25rem var(--space-2);
+    color: var(--color-primary-strong);
+    font-size: 0.875rem;
+    font-weight: 800;
+    background: #fef3c7;
+    border-radius: 999px;
+}
+.card-actions {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+/* P06 Terapkan Grid */
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-4);
+    align-items: center;
+}
+.hero-image { width: 100%; border-radius: var(--radius-md); }
+
+.product-grid,
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+}
+.gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* P06 Tugas Mandiri - Beranda */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+}
+.product-list .product-card { margin-block: 0; }
+
+.unggulan-card {
+    position: relative;
+    width: 100%;
+    max-width: 18rem;
+    margin: 0 auto var(--space-2);
+}
+.produk-unggulan {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+.photo-badge {
+    position: absolute;
+    top: var(--space-1);
+    left: var(--space-1);
+    padding: 0.25rem var(--space-2);
+    color: var(--color-primary-strong);
+    font-size: 0.875rem;
+    font-weight: 800;
+    background: var(--color-accent-soft);
+    border-radius: 999px;
+}
+
+.product-list .card-actions { justify-content: space-between; }
+.card-actions .price { margin: 0; }
+
+.jam-buka { max-width: 24rem; padding: 0; list-style: none; }
+.jam-buka li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-block: var(--space-1);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page > section + section { margin-top: var(--space-5); }
+
+.product-grid .product-card { margin-block: 0; }
 
 /* bagian ini dihapus */
 

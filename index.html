@@ -24,11 +24,13 @@
 
     <main id="konten" class="page">
         <section class="hero" aria-labelledby="hero-title">
-            <p class="eyebrow">UMKM Pekalongan</p>
-            <h1 id="hero-title">Soto Tauto Lani</h1>
-            <p>Soto khas Pekalongan yang lezat dan menggugah selera.</p>
-            <button id="promoButton" type="button">Lihat promo hari ini</button>
-            <div class="gallery-list">
+            <div class="hero-content">
+                <p class="eyebrow">UMKM Pekalongan</p>
+                <h1 id="hero-title">Soto Tauto Lani</h1>
+                <p>Soto khas Pekalongan yang lezat dan menggugah selera.</p>
+                <button id="promoButton" type="button">Lihat promo hari ini</button>
+            </div>
+            <div class="hero-image">
                 <figure class="media-card">
                     <div class="etalase-hero">
                         <img src="assets/images/produk-1-ayam.jpg" alt="Etalase Soto Tauto Ayam">
@@ -48,10 +50,14 @@
                 <article class="product-card">
                     <figure class="unggulan-card">
                         <img class="produk-unggulan" src="assets/images/produk-1-ayam.jpg" alt="Soto Tauto Ayam khas Pekalongan">
+                        <span class="photo-badge">Terlaris</span>
                     </figure>
                     <h3>Soto Tauto Ayam</h3>
                     <p>Soto khas Pekalongan dengan kuah tauto yang gurih dan daging ayam yang lembut.</p>
-                    <p class="price">Rp15.000</p>
+                    <div class="card-actions">
+                        <p class="price">Rp15.000</p>
+                        <a class="button" href="produk.html" aria-label="Lihat detail Soto Tauto Ayam">Lihat detail</a>
+                    </div>
                 </article>
                 <article class="product-card">
                     <figure class="unggulan-card">
@@ -59,15 +65,21 @@
                     </figure>   
                     <h3>Soto Tauto Daging</h3>
                     <p>Soto khas Pekalongan dengan kuah tauto yang gurih dan potongan daging sapi yang empuk.</p>
-                    <p class="price">Rp20.000</p>
+                    <div class="card-actions">
+                        <p class="price">Rp20.000</p>
+                        <a class="button" href="produk.html" aria-label="Lihat detail Soto Tauto Daging">Lihat detail</a>
+                    </div>
                 </article>
                 <article class="product-card">
                     <figure class="unggulan-card">
                         <img class="produk-unggulan" src="assets/images/produk-3-mix.jpg" alt="Soto Tauto Ayam dan Daging khas Pekalongan">
                     </figure>
-                    <h3>Soto Tauto Ayam dan Daging</h3>
+                    <h3>Soto Tauto Ayam + Daging</h3>
                     <p>Perpaduan daging ayam dan daging sapi dalam kuah tauto yang gurih dan nikmat.</p>
-                    <p class="price">Rp25.000</p>
+                    <div class="card-actions">
+                        <p class="price">Rp25.000</p>
+                        <a class="button" href="produk.html" aria-label="Lihat detail Soto Tauto Ayam + Daging">Lihat detail</a>
+                    </div> 
                 </article>
                 <article class="product-card">
                     <figure class="unggulan-card">
@@ -75,7 +87,10 @@
                     </figure>
                     <h3>Sate Telur Puyuh</h3>
                     <p>Sate telur puyuh dengan bumbu gurih yang cocok sebagai pelengkap saat menikmati Soto Tauto.</p>
-                    <p class="price">Rp3.000</p>
+                    <div class="card-actions">
+                        <p class="price">Rp3.000</p>
+                        <a class="button" href="produk.html" aria-label="Lihat detail Sate Telur Puyuh">Lihat detail</a>
+                    </div>
                 </article>
             </div>
         </section>
@@ -83,9 +98,9 @@
         <section aria-labelledby="infromasi-title">
             <h2 id="infromasi-title">Informasi</h2>
             <p>Jam Buka:</p>
-            <ul>
-                <li>Senin - Jumat: 08.00 - 20.00</li>
-                <li>Sabtu - Minggu: 09.00 - 22.00</li>
+            <ul class="jam-buka">
+                <li><span>Senin - Jumat</span> <span>08.00 - 20.00</span></li>
+                <li><span>Sabtu - Minggu</span> <span>09.00 - 22.00</span></li>
             </ul>
         </section>
 
