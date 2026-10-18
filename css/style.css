@@ -201,6 +201,7 @@ audio { max-width: 100%; }
 #preview-form {
     padding: var(--space-3);
     white-space: pre-wrap;
+    overflow-wrap: anywhere; /* p07 perbaikan (tugas mandiri) */
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
@@ -243,12 +244,18 @@ caption {
 /* P06 Terapkan Flexbox */
 .nav {
     display: flex;
+    flex-direction: column;
     gap: var(--space-3);
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 .brand { margin-bottom: 0; }
-.nav ul { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.nav ul { 
+    display: flex; 
+    flex-direction: column;
+    gap: var(--space-2); 
+    flex-wrap: wrap; 
+}
 .nav li { margin: 0; }
 
 .product-card { display: flex; flex-direction: column; }
@@ -272,7 +279,7 @@ caption {
 /* P06 Terapkan Grid */
 .hero {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr;
     gap: var(--space-4);
     align-items: center;
 }
@@ -281,15 +288,17 @@ caption {
 .product-grid,
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--space-3);
 }
-.gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } */
+.gallery-grid { grid-template-columns: 1fr; }
 
 /* P06 Tugas Mandiri - Beranda */
 .product-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* grid-template-columns: repeat(2, minmax(0, 1fr)); */
+    grid-template-columns: 1fr;
     gap: var(--space-3);
 }
 .product-list .product-card { margin-block: 0; }
@@ -334,6 +343,28 @@ caption {
 .page > section + section { margin-top: var(--space-5); }
 
 .product-grid .product-card { margin-block: 0; }
+
+/* P07 Tambahkan overflow tabel */
+.table-scroll { max-width: 100%; overflow-x: auto; }
+.table-scroll:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+.table-scroll table { min-width: 40rem; }
+
+/* P07 Tambahkan breakpoint berbasis konten */
+@media (min-width: 42rem) {
+  .nav ul { flex-direction: row; }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 48rem) {
+  .hero { grid-template-columns: 1.2fr 0.8fr; }
+  .product-grid,
+  .product-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 60rem) {
+  .nav { flex-direction: row; align-items: center; justify-content: space-between; }
+  .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 
 /* bagian ini dihapus */
 
