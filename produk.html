@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produk Soto Tauto Lani - Website UMKM</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- hubungkan app.js -->
+    <script src="js/app.js" defer></script>
 </head>
 <body>
 
     <a class="skip-link" href="#konten">Lewati ke konten utama</a>
     <header class="site-header">
         <nav class="nav" aria-label="Navigasi utama">
-            <a class="brand" href="index.html">Soto Tauto Lani</a>
+            <a class="brand" href="index.html">
+                <img src="assets/images/logo.jpg" width="40" height="40" alt="Logo Soto Tauto Lani" class="logo">
+                Soto Tauto Lani</a>
+            <input class="nav-toggle" type="checkbox" id="menu-toggle" aria-label="Buka atau tutup menu">
+            <label class="nav-button" for="menu-toggle">☰</label>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="tentang.html">Tentang Kami</a></li>
@@ -26,7 +32,17 @@
     <main id="konten" class="page">
         <h1>Produk Soto Tauto Lani</h1>
         <p>Pilih produk sesuai sesuai selera, mulai dari ayam, daging, hingga perpaduan keduanya.</p>
-    
+
+        <!-- Tambahkan target render di produk.html -->
+        <section class="section" aria-labelledby="produk-dinamis-title">
+            <div class="section-header">
+                <p class="eyebrow">Data JavaScript</p>
+                <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
+                <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
+            </div>
+            <div id="produk-dinamis" class="js-product-grid"></div>
+        </section>
+
         <section aria-labelledby="kategori-title">
             <h2 id="kategori-title">Kategori Produk</h2>
             <ul>
@@ -128,7 +144,7 @@
                             <td>Rp30.000</td>
                         </tr>
                         <tr>
-                            <th>Sate Telur Puyuh</th>
+                            <th scope="row">Sate Telur Puyuh</th>
                             <td>1 tusuk</td>
                             <td>Rp3.000</td>
                         </tr>
@@ -136,7 +152,6 @@
                 </table>
             </div>
         </section>
-
     </main>
 
     <footer class="site-footer">

@@ -244,19 +244,78 @@ caption {
 /* P06 Terapkan Flexbox */
 .nav {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    align-items: flex-start;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-2);
+    /* align-items: flex-start; */
+    align-items: center;
     justify-content: space-between;
 }
-.brand { margin-bottom: 0; }
+.brand { 
+    display: inline-flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-bottom: 0;
+}
+.logo { width: 3rem; height: auto; border-radius: var(--radius-sm); }
 .nav ul { 
-    display: flex; 
+    /* display: flex; */
+    display: none;
+    width: 100%;
     flex-direction: column;
     gap: var(--space-2); 
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 .nav li { margin: 0; }
+
+/* Hamburger menu */
+.nav-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+}
+.nav-toggle:checked + .nav-button { color: var(--color-surface); background: var(--color-primary); }
+.nav-toggle:focus-visible + .nav-button { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+.nav-toggle:checked ~ ul { display: flex; }
+
+.nav-toggle:checked ~ ul { display: flex; }
+
+/* Menu HP tampil sebagai kartu */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20; }
+.nav-toggle:checked ~ ul {
+    position: absolute;
+    top: 100%;
+    left: var(--space-3);
+    right: var(--space-3);
+    z-index: 10;
+    width: auto;
+    gap: var(--space-1);
+    padding: var(--space-2);
+    margin-top: var(--space-2);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(67, 20, 7, 0.15);
+}
+.nav-toggle:checked ~ ul a {
+    display: block;
+    padding: var(--space-3);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+}
+/*  */
 
 .product-card { display: flex; flex-direction: column; }
 .product-badge {
@@ -351,7 +410,10 @@ caption {
 
 /* P07 Tambahkan breakpoint berbasis konten */
 @media (min-width: 42rem) {
-  .nav ul { flex-direction: row; }
+  /* .nav ul { flex-direction: row; } */
+  .nav-toggle,
+  .nav-button { display: none; }
+  .nav ul { display: flex; flex-direction: row; width: auto; }
   .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -364,6 +426,64 @@ caption {
 @media (min-width: 60rem) {
   .nav { flex-direction: row; align-items: center; justify-content: space-between; }
   .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* P09 Tambahkan CSS untuk output JavaScript */
+.js-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: var(--space-4);
+}
+
+.js-product-card {
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+}
+
+.stock-badge {
+    display: inline-flex;
+    margin-block-start: var(--space-2);
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.stock-badge.warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.stock-badge.empty {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* Tugas mandiri P09 */
+.product-feature {
+    float: right;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: #e0f2fe;
+    color: #075985;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Challenge P09 */
+.discount-badge {
+    display: inline-block;
+    padding: 4px 9px;
+    margin-right: 6px;
+    border-radius: 20px;
+    background-color: #fee2e2;
+    color: #dc2626;
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
 /* bagian ini dihapus */
