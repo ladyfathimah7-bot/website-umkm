@@ -31,7 +31,7 @@
 
     <main id="konten" class="page">
         <h1>Produk Soto Tauto Lani</h1>
-        <p>Pilih produk sesuai sesuai selera, mulai dari ayam, daging, hingga perpaduan keduanya.</p>
+        <p>Pilih produk sesuai selera, mulai dari ayam, daging, hingga perpaduan keduanya.</p>
 
         <!-- Tambahkan target render di produk.html -->
         <section class="section" aria-labelledby="produk-dinamis-title">
@@ -39,6 +39,8 @@
                 <p class="eyebrow">Data JavaScript</p>
                 <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
                 <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
+                <!-- Jika #produk-unggulan belum ada di produk.html, tambahkan elemen ini pada section produk dinamis. -->
+                <p id="produk-unggulan">Produk unggulan akan ditentukan melalui JavaScript.</p>
             </div>
             <div id="produk-dinamis" class="js-product-grid"></div>
         </section>

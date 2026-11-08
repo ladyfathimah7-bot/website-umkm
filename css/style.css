@@ -486,6 +486,17 @@ caption {
     font-weight: 700;
 }
 
+/* 9. Tambahkan CSS kecil jika dibutuhkan */
+.stock-badge.warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+#produk-unggulan {
+    font-weight: 700;
+    color: var(--color-primary, #6f3b1f);
+}
+
 /* bagian ini dihapus */
 
 /* .page {
