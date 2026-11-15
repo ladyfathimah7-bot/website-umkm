@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- hubungkan app.js -->
     <script src="js/app.js" defer></script>
+    <!-- <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg"> -->
 </head>
 <body>
 
@@ -33,18 +34,6 @@
         <h1>Produk Soto Tauto Lani</h1>
         <p>Pilih produk sesuai selera, mulai dari ayam, daging, hingga perpaduan keduanya.</p>
 
-        <!-- Tambahkan target render di produk.html -->
-        <section class="section" aria-labelledby="produk-dinamis-title">
-            <div class="section-header">
-                <p class="eyebrow">Data JavaScript</p>
-                <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
-                <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
-                <!-- Jika #produk-unggulan belum ada di produk.html, tambahkan elemen ini pada section produk dinamis. -->
-                <p id="produk-unggulan">Produk unggulan akan ditentukan melalui JavaScript.</p>
-            </div>
-            <div id="produk-dinamis" class="js-product-grid"></div>
-        </section>
-
         <section aria-labelledby="kategori-title">
             <h2 id="kategori-title">Kategori Produk</h2>
             <ul>
@@ -60,6 +49,7 @@
             <div class="product-grid">
                 <article class="product-card">
                     <span class="product-badge">Terlaris</span>
+                    <img class="product-image" src="assets/images/produk-1-ayam.jpg" alt="Soto Tauto Ayam dengan kuah tauto khas Pekalongan" loading="lazy" width="800" height="600">
                     <h3>Soto Tauto Ayam</h3>
                     <p>Soto khas Pekalongan dengan kuah tauto yang gurih dan daging ayam yang lembut.</p>
                     <p class="price">Rp15.000</p>
@@ -71,6 +61,7 @@
 
                 <article class="product-card">
                     <span class="product-badge">Favorit</span>
+                    <img class="product-image" src="assets/images/produk-2-daging.jpg" alt="Soto Tauto Ayam dengan kuah tauto khas Pekalongan" loading="lazy" width="800" height="600">
                     <h3>Soto Tauto Daging</h3>
                     <p>Soto khas Pekalongan dengan kuah tauto yang gurih dan daging sapi yang empuk.</p>
                     <p class="price">Rp20.000</p>
@@ -82,6 +73,7 @@
 
                 <article class="product-card">
                     <span class="product-badge">Komplit</span>
+                    <img class="product-image" src="assets/images/produk-3-mix.jpg" alt="Soto Tauto Ayam dengan kuah tauto khas Pekalongan" loading="lazy" width="800" height="600">
                     <h3>Soto Tauto Ayam + Daging</h3>
                     <p>Paket soto khas Pekalongan dengan kuah tauto yang gurih, daging ayam lembut, dan potongan daging sapi empuk.</p>
                     <p class="price">Rp25.000</p>
@@ -93,6 +85,7 @@
 
                 <article class="product-card">
                     <span class="product-badge">Pelengkap</span>
+                    <img class="product-image" src="assets/images/produk-5-telur.jpg" alt="Soto Tauto Ayam dengan kuah tauto khas Pekalongan" loading="lazy" width="800" height="600">
                     <h3>Sate Telur Puyuh</h3>
                     <p>Sate telur puyuh yang lezat dan gurih, cocok sebagai lauk pendamping soto.</p>
                     <p class="price">Rp3.000</p>
@@ -102,6 +95,37 @@
                     </div>
                 </article>
             </div>
+        </section>
+
+        <!-- Tambahkan target render di produk.html -->
+        <section class="section" aria-labelledby="produk-dinamis-title">
+            <div class="section-header">
+                <p class="eyebrow">Data JavaScript</p>
+                <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
+                <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
+                <!-- Jika #produk-unggulan belum ada di produk.html, tambahkan elemen ini pada section produk dinamis. -->
+                <p id="produk-unggulan">Produk unggulan akan ditentukan melalui JavaScript.</p>
+                <p id="produk-kategori-info">Ringkasan kategori akan dibuat melalui JavaScript.</p>
+            </div>
+
+            <!-- P11  -->
+            <div class="filter-bar" aria-label="filter kategori produk">
+                <button type="button" class="filter-button is-active" data-filter="Semua">Semua</button>
+                <button type="button" class="filter-button" data-filter="Makanan">Makanan</button>
+                <button type="button" class="filter-button" data-filter="Paket">Paket</button>
+                <button type="button" class="filter-button" data-filter="Pelengkap">Pelengkap</button>
+                <button type="button" class="filter-button" data-filter="Minuman">Minuman</button>
+            </div>
+
+            <!-- P11 Pengayaan: Tambahkan filter stok: -->
+            <div class="filter-bar" aria-label="Filter stok produk">
+                <button type="button" class="filter-button is-active" data-filter-stok="Semua">Semua stok</button>
+                <button type="button" class="filter-button" data-filter-stok="Tersedia">Tersedia</button>
+                <button type="button" class="filter-button" data-filter-stok="Stok terbatas">Stok terbatas</button>
+                <button type="button" class="filter-button" data-filter-stok="Habis">Habis</button>
+            </div>
+
+            <div id="produk-dinamis" class="js-product-grid" aria-live="polite"></div>
         </section>
 
         <section aria-labelledby="harga-title">

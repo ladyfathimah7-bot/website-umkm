@@ -93,60 +93,151 @@ function hitungHargaPromo(produk) {
     return produk.harga;
 }
 
-// Buat function buatKartuProduk
-function buatKartuProduk(produk) {
-    const status = statusStok(produk.stok);
-    const kategori = labelKategori(produk.kategori);
-    const unggulan = labelUnggulan(produk.unggulan);
-    // gunakan ternary untuk keputusan dua cabang yang pendek
-    const labelAksi = produk.stok > 0 ? "Siap dipesan" : "Hubungi admin";
-    // challenge tambahkan properti diskonPersen pada satu produk // harga setelah diskon, dihitung oleh hitungHargaPromo
-    const hargaPromo = hitungHargaPromo(produk);
+// P11 Buat DOM selection dan guard
+const produkGrid = document.querySelector("#produk-dinamis");
+const produkStatus = document.querySelector("#produk-ringkasan");
+const unggulanInfo = document.querySelector("#produk-unggulan");
+const tombolFilter = document.querySelectorAll("[data-filter]");
+const tombolFilterStok = document.querySelectorAll("[data-filter-stok]"); // pengayaan: tombol filter stok
+const kategoriInfo = document.querySelector("#produk-kategori-info"); // challenge: penghitung kategori aktif
 
-    return `
-        <article class="js-product-card">
-            <p class="product-feature">${unggulan}</p>
-            <h3>${produk.nama}</h3>
-            <p>${kategori}</p>
-            <p>${produk.deskripsi}</p>
-               
-            <p class="price">
-                ${produk.diskonPersen > 0 && produk.diskonPersen <= 100
-                    ? `<span class="discount-badge">Diskon ${produk.diskonPersen}%</span>
-                        <del>${formatRupiah(produk.harga)}</del> 
-                        <strong>${formatRupiah(hargaPromo)}</strong>`
-                    : formatRupiah(produk.harga)}
-            </p>
-            <span class="stock-badge ${status.className}">${status.label}</span>
-            <p>${labelAksi}</p>
-        </article>
-    `;
+// pengayaan: menyimpan pilihan filter yang sedang aktif
+let kategoriDipilih = "Semua";
+let stokDipilih = "Semua";
+
+console.log("Grid produk:", produkGrid);
+console.log("Status produk:", produkStatus);
+console.log("Jumlah tombol filter:", tombolFilter.length);
+console.log("Jumlah tombol stok:", tombolFilterStok.length);
+
+// P11 Buat function buatElemenProduk
+function buatElemenProduk(produk) {
+    const card = document.createElement("article");
+    card.classList.add("js-product-card");
+
+    const title = document.createElement("h3");
+    title.textContent = produk.nama;
+
+    const category = document.createElement("p");
+    category.classList.add("category-note");
+    category.textContent = produk.kategori;
+
+    const price = document.createElement("p");
+    price.classList.add("price");
+    price.textContent = formatRupiah(produk.harga);
+
+    const stock = document.createElement("span");
+    const status = statusStok(produk.stok);
+    stock.classList.add("stock-badge");
+    if (status.className) {
+        stock.classList.add(status.className);
+    }
+    stock.textContent = status.label;
+
+    // P11 Uji remove element dan debugging
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.textContent = "Sembunyikan";
+    removeButton.classList.add("ghost-button");
+
+    removeButton.addEventListener("click", () => {
+        card.remove();
+        produkStatus.textContent = "Satu kartu disembunyikan dari tampilan sementara.";
+    });
+
+    card.append(title, category, price, stock, removeButton); 
+    return card;
 }
+
+// P11 Buat empty state dan rendering data
+function buatEmptyState(kategori) {
+    const empty = document.createElement("p");
+    empty.classList.add("empty-state");
+    empty.textContent = `Belum ada produk pada kategori ${kategori}.`;
+    return empty;
+}
+
+// P11 Pasang event listener dan classList
+tombolFilter.forEach((tombol) => {
+    tombol.addEventListener("click", (event) => {
+        const tombolAktif = event.currentTarget;
+        const kategori = tombolAktif.dataset.filter;
+
+        kategoriDipilih = kategori; // pengayaan: simpan kategori yang dipilih
+
+        tombolFilter.forEach((item) => item.classList.remove("is-active"));
+        tombolAktif.classList.add("is-active");
+
+        renderProduk(kategori);
+    });
+});
+
+// P11 Pengayaan: Event listener filter stok
+tombolFilterStok.forEach((tombol) => {
+    tombol.addEventListener("click", (event) => {
+        const tombolAktif = event.currentTarget;
+        stokDipilih = tombolAktif.dataset.filterStok;
+
+        tombolFilterStok.forEach((item) => item.classList.remove("is-active"));
+        tombolAktif.classList.add("is-active");
+
+        renderProduk(kategoriDipilih);
+    });
+});
 
 // Render data ke DOM dengan aman
-function renderProduk() {
-    const grid = document.querySelector("#produk-dinamis");
-    const ringkasan = document.querySelector("#produk-ringkasan");
-    const unggulan = document.querySelector("#produk-unggulan");
-    
-    if (!grid) {
+function renderProduk(kategoriAktif = "Semua") {
+    if (!produkGrid) {
         return;
     }
 
-    if (!ringkasan || !unggulan) {
-        console.warn("Target render produk belum lengkap.");
+    if (!produkGrid || !produkStatus) {
+        console.warn("Target render produk tidak ditemukan.");
         return;
     }
 
-    const produkTersedia = produkUmkm.filter((produk) => produk.stok > 0);
+    const produkTampil = kategoriAktif === "Semua"
+        ? produkUmkm
+        : produkUmkm.filter((produk) => produk.kategori === kategoriAktif);
+
+    // Pengayaan: filter stok
+    const statustokTampil = stokDipilih === "Semua"
+        ? produkTampil
+        : produkTampil.filter((produk) => statusStok(produk.stok).label === stokDipilih);
+
+    // Challenge: penghitung kategori aktif
+    if (kategoriInfo) {
+        kategoriInfo.textContent = `Kategori ${kategoriAktif} menampilkan ${statustokTampil.length} produk dari ${produkUmkm.length} total produk.`;
+    }
+        
+
     const produkUnggulan = produkUmkm.find((produk) => produk.unggulan === true);
-    const markupProduk = produkUmkm.map(buatKartuProduk).join("");
+    if (unggulanInfo) {
+        unggulanInfo.textContent = produkUnggulan
+            ? `Produk unggulan: ${produkUnggulan.nama}`
+            : "Belum ada produk unggulan.";
+    }
+    
+    produkGrid.replaceChildren();
 
-    grid.innerHTML = markupProduk;
-    ringkasan.textContent = `${produkTersedia.length} produk tersedia dari ${produkUmkm.length} data.`;
-    unggulan.textContent = produkUnggulan
-        ? `Produk unggulan: ${produkUnggulan.nama}`
-        : "Belum ada produk unggulan.";
+    if (produkTampil.length === 0) {
+        produkGrid.append(buatEmptyState(kategoriAktif));
+        produkStatus.textContent = "0 produk ditemukan.";
+        return;
+    }
+
+    // Periksa hasil filter stok
+    if (statustokTampil.length === 0) {
+        produkGrid.append(buatEmptyState(`${kategoriAktif} (${stokDipilih.toLowerCase()})`));
+        produkStatus.textContent = "0 produk ditemukan.";
+        return;
+    }
+
+    statustokTampil.forEach((produk) => {
+        produkGrid.append(buatElemenProduk(produk));
+    });
+
+    produkStatus.textContent = `${statustokTampil.length} produk ditampilkan.`;
 }
 
-document.addEventListener("DOMContentLoaded", renderProduk);
+renderProduk();
